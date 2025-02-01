@@ -15,11 +15,22 @@
 
   # Hyprland LETS GOOOOO
   programs.hyprland = {
-    # Install the packages from nixpkgs
     enable = true;
-    # Whether to enable XWayland
+    nvidiaPatches = true; # Disable for AMD GPU
     xwayland.enable = true;
   };
+
+  environment.sessionVariables = {
+    # Invisible cursor patch
+    WLR_NO_HARDWARE_CURSORS = "1";
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  }; 
+
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true; # Disable for AMD GPU
+  }; 
 
   # Search package: $ nix search <PACKAGE NAME> or https://search.nixos.org/packages?channel=24.11&size=50&sort=relevance&type=packages&
   # Make sure to check the options: https://search.nixos.org/options?channel=24.11&size=50&sort=relevance&type=packages
@@ -74,10 +85,6 @@
 
   # Enable the X11 windowing system.
   #services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
