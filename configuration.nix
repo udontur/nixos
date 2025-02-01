@@ -40,6 +40,7 @@
     vscode
     nixfmt-rfc-style
     firefox
+    git
     hyprland
   ];
 
