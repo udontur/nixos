@@ -16,7 +16,6 @@
   # Hyprland LETS GOOOOO
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true; # Disable for AMD GPU
     xwayland.enable = true;
   };
 
@@ -29,7 +28,6 @@
 
   hardware = {
     opengl.enable = true;
-    nvidia.modesetting.enable = true; # Disable for AMD GPU
   }; 
 
   # Search package: $ nix search <PACKAGE NAME> or https://search.nixos.org/packages?channel=24.11&size=50&sort=relevance&type=packages&
